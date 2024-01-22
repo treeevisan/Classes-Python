@@ -1,13 +1,14 @@
 
+from random import randint
 
 class Agencia:
 
     def __init__(self, telefone, cnpj, numero):
         self.telefone = telefone
-        self.ncpj = cnpj
+        self.cpj = cnpj
         self.numero = numero
         self.clientes = []
-        self.caixa = 100000
+        self.caixa = 200000
         self.emprestimos = []
         print('Agência Criada!')
 
@@ -27,17 +28,33 @@ class Agencia:
     def add_cliente(self, nome, cpf, patrimonio):
         self.clientes.append((nome, cpf, '{:,.2f}'.format(patrimonio)))
 
-# Subclasse, tudo que tem na Agencia tem na classe Agencia Virtual
-
+# Subclasse, tudo que tem na classe Agencia tem nas classes abaixo
+    # Agencia Virtual
+    # Agencia Comum
+    # Agencia Premium
+        
 class AgenciaVirtual(Agencia):
-    pass
+    
+    def __init__ (self, site, telefone, cnpj):
+        self.site = site
+        super().__init__(telefone,cnpj, 1000) # Conectando a super classe (Agencia) com a sub classe (Ag. virtual)
+        print('Agência Criada!')
+        self.caixa = 5000000
+    
+
 class AgenciaComum(Agencia):
-    pass
+    
+    def __init__ (self, telefone, cnpj):
+        super().__init__(telefone, cnpj, numero = randint(1001,9999))
+        self.caixa = 10000000
+
+
 class AgenciaPremium(Agencia):
-    pass
-# Agencia Virtual
-# Agencia Comum
-# Agencia Premium
+    
+    def __init__ (self, telefone, cnpj):
+        super().__init__(telefone, cnpj, numero = randint(10001,9999))
+        self.caixa = 10000000
+
 
 
 # --------------------------------- // --------------------------- // -------------------
@@ -63,3 +80,27 @@ agencia01.caixa
 agencia01.add_cliente('Renan',345678821,2513574)
 
 agencia01.clientes
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Agencia virtual
+ag_virtual = AgenciaVirtual('www.agv.com',11197577, '0001.12321/001')
+ag_virtual.verific_caixa()
+ag_virtual.clientes
+
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Agencia comum
+
+ag_comum = AgenciaComum(3158711, '0001.12321/001')
+ag_comum.verific_caixa()
+ag_comum.numero
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Agencia Premium
+
+ag_comum = AgenciaComum(7636381, '0001.95751/001')
+ag_comum.verific_caixa()
+ag_comum.numero
