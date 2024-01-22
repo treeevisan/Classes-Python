@@ -40,9 +40,16 @@ class AgenciaVirtual(Agencia):
         super().__init__(telefone,cnpj, 1000) # Conectando a super classe (Agencia) com a sub classe (Ag. virtual)
         print('Agência Criada!')
         self.caixa = 5000000
+        self.caixa_paypal = 0
     
-    def deposito_paypal(self):
+    def deposito_paypal(self, valor):
+        self.caixa -=valor
+        self.caixa_paypal += valor
         
+    def saque_paypal(self, valor):
+        self.caixa +=valor
+        self.caixa_paypal -= valor
+
 
 class AgenciaComum(Agencia):
     
@@ -54,8 +61,16 @@ class AgenciaComum(Agencia):
 class AgenciaPremium(Agencia):
     
     def __init__ (self, telefone, cnpj):
-        super().__init__(telefone, cnpj, numero = randint(10001,9999))
+        super().__init__(telefone, cnpj, numero = randint(1001,9999))
         self.caixa = 10000000
+
+    def add_cliente(self, nome, cpf, patrimonio):
+        if patrimonio > 1000000:
+            super().add_cliente(nome, cpf,patrimonio)
+            print('Cliente adicionado com sucesso')
+        else:
+            print('O cliente não tem patrimônio suficiente para entrar na Agencia Premium')
+
 
 
 
@@ -90,6 +105,11 @@ ag_virtual = AgenciaVirtual('www.agv.com',11197577, '0001.12321/001')
 ag_virtual.verific_caixa()
 ag_virtual.clientes
 
+# Paypal
+ag_virtual.deposito_paypal(20000)
+ag_virtual.verific_caixa()
+ag_virtual.caixa_paypal
+
 
 # --------------------------------- // --------------------------- // -------------------
 
@@ -103,6 +123,13 @@ ag_comum.numero
 
 # Agencia Premium
 
-ag_comum = AgenciaComum(7636381, '0001.95751/001')
-ag_comum.verific_caixa()
-ag_comum.numero
+ag_premium = AgenciaPremium(7636391, '0001.95751/001')
+ag_premium.verific_caixa()
+ag_premium.numero
+
+ag_premium.add_cliente('Renan', 123213, 5000)
+ag_premium.add_cliente('Joao', 123213, 5000000)
+
+ag_premium.clientes
+
+
