@@ -1,0 +1,65 @@
+
+
+class Agencia:
+
+    def __init__(self, telefone, cnpj, numero):
+        self.telefone = telefone
+        self.ncpj = cnpj
+        self.numero = numero
+        self.clientes = []
+        self.caixa = 100000
+        self.emprestimos = []
+        print('Agência Criada!')
+
+    def verific_caixa(self):
+        if self.caixa <1000000:
+            print('Caixa abaixo do nível recomendado. Caixa atual R${:,.2f}'.format(self.caixa))
+        else:
+            print('O valor de caixa está ok. Caixa atual R${}'.format(self.caixa))
+
+    def emprestar_din(self,valor, cpf, juros):
+        if self.caixa>valor:
+            self.emprestimos.append((valor, cpf, juros))
+            self.caixa -= valor
+        else:
+            print('Emprestimo bloqueado. Dinheiro disponível é menor do que o valor requerido.')
+
+    def add_cliente(self, nome, cpf, patrimonio):
+        self.clientes.append((nome, cpf, '{:,.2f}'.format(patrimonio)))
+
+# Subclasse, tudo que tem na Agencia tem na classe Agencia Virtual
+
+class AgenciaVirtual(Agencia):
+    pass
+class AgenciaComum(Agencia):
+    pass
+class AgenciaPremium(Agencia):
+    pass
+# Agencia Virtual
+# Agencia Comum
+# Agencia Premium
+
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Interface           
+
+# Criando agencia
+agencia01 = Agencia(9999999,'0001.12894736/002', 1)
+
+agencia01.verific_caixa()
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Emprestimo
+agencia01.emprestar_din(1200,645236728,'2%')
+
+agencia01.emprestimos
+agencia01.caixa
+
+# --------------------------------- // --------------------------- // -------------------
+
+# Add cliente
+agencia01.add_cliente('Renan',345678821,2513574)
+
+agencia01.clientes
