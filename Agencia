@@ -73,63 +73,64 @@ class AgenciaPremium(Agencia):
 
 
 
+if __name__ == '__main__':
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Interface           
+    ## Interface           
 
-# Criando agencia
-agencia01 = Agencia(9999999,'0001.12894736/002', 1)
+    # Criando agencia
+    agencia01 = Agencia(9999999,'0001.12894736/002', 1)
 
-agencia01.verific_caixa()
+    agencia01.verific_caixa()
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Emprestimo
-agencia01.emprestar_din(1200,645236728,'2%')
+    # Emprestimo
+    agencia01.emprestar_din(1200,645236728,'2%')
 
-agencia01.emprestimos
-agencia01.caixa
+    agencia01.emprestimos
+    agencia01.caixa
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Add cliente
-agencia01.add_cliente('Renan',345678821,2513574)
+    # Add cliente
+    agencia01.add_cliente('Renan',345678821,2513574)
 
-agencia01.clientes
+    agencia01.clientes
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Agencia virtual
-ag_virtual = AgenciaVirtual('www.agv.com',11197577, '0001.12321/001')
-ag_virtual.verific_caixa()
-ag_virtual.clientes
+    # Agencia virtual
+    ag_virtual = AgenciaVirtual('www.agv.com',11197577, '0001.12321/001')
+    ag_virtual.verific_caixa()
+    ag_virtual.clientes
 
-# Paypal
-ag_virtual.deposito_paypal(20000)
-ag_virtual.verific_caixa()
-ag_virtual.caixa_paypal
+    # Paypal
+    ag_virtual.deposito_paypal(20000)
+    ag_virtual.verific_caixa()
+    ag_virtual.caixa_paypal
 
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Agencia comum
+    # Agencia comum
 
-ag_comum = AgenciaComum(3158711, '0001.12321/001')
-ag_comum.verific_caixa()
-ag_comum.numero
+    ag_comum = AgenciaComum(3158711, '0001.12321/001')
+    ag_comum.verific_caixa()
+    ag_comum.numero
 
-# --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# Agencia Premium
+    # Agencia Premium
 
-ag_premium = AgenciaPremium(7636391, '0001.95751/001')
-ag_premium.verific_caixa()
-ag_premium.numero
+    ag_premium = AgenciaPremium(7636391, '0001.95751/001')
+    ag_premium.verific_caixa()
+    ag_premium.numero
 
-ag_premium.add_cliente('Renan', 123213, 5000)
-ag_premium.add_cliente('Joao', 123213, 5000000)
+    ag_premium.add_cliente('Renan', 123213, 5000)
+    ag_premium.add_cliente('Joao', 123213, 5000000)
 
-ag_premium.clientes
+    ag_premium.clientes
 
 

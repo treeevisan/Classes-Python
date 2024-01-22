@@ -120,83 +120,85 @@ class CartaoCredito():
         conta.cartoes.append(self)
 
 
-# # --------------------------------- // --------------------------- // -------------------
-        
-# ## Interface
-        
-# conta_renan = ContaCorrente('Renan', 46817267825, 500, 1, 2032)
-# conta_mae = ContaCorrente('Shirley', 48920194392,100,1,4685)
 
-# conta_renan.consultar_saldo()
-# conta_mae.consultar_saldo
+if __name__ == '__main__':
+    # --------------------------------- // --------------------------- // -------------------
+            
+    ## Interface
+            
+    conta_renan = ContaCorrente('Renan', 46817267825, 500, 1, 2032)
+    conta_mae = ContaCorrente('Shirley', 48920194392,100,1,4685)
 
-# # --------------------------------- // --------------------------- // -------------------
+    conta_renan.consultar_saldo()
+    conta_mae.consultar_saldo
 
-# ## Deposito
+    # --------------------------------- // --------------------------- // -------------------
 
-# conta_renan.depositar(10)
-# time.sleep(3)
+    ## Deposito
 
-# # --------------------------------- // --------------------------- // -------------------
+    conta_renan.depositar(10)
+    time.sleep(3)
 
-# ## Saque
+    # --------------------------------- // --------------------------- // -------------------
 
-# conta_renan.sacar(300)
-# time.sleep(3)
+    ## Saque
 
-
-
-# ## Transferencia e Extrato
-
-# conta_renan.transferir(75, conta_mae)
-
-# conta_mae.consultar_saldo()
-
-# conta_renan.consultar_historico()
-# conta_mae.consultar_historico()
-
-# conta_mae.consultar_saldo()
-
-# conta_mae.saldo
-
-# # --------------------------------- // --------------------------- // -------------------
-
-# ## Consulta cartoes
-
-# print(conta_renan.cartoes[0].numero)
-
-# # --------------------------------- // --------------------------- // -------------------
-
-# ## Cartao de Credito
-
-# cartao_renan = CartaoCredito('Renan',conta_renan)
-
-# print(cartao_renan.validade)
-# print(cartao_renan.numero)
-# print(cartao_renan.cvv)
+    conta_renan.sacar(300)
+    time.sleep(3)
 
 
-# cartao_mae = CartaoCredito('Shirley',conta_mae)
-# print(cartao_mae.validade)
-# print(cartao_mae.numero)
-# print(cartao_mae.cvv)
 
-# # --------------------------------- // --------------------------- // -------------------
+    ## Transferencia e Extrato
 
-# ## Senha
+    conta_renan.transferir(75, conta_mae)
 
-# print(conta_renan.senha)
+    conta_mae.consultar_saldo()
 
-# conta_renan.senha = '123' # Senha inválida
+    conta_renan.consultar_historico()
+    conta_mae.consultar_historico()
 
-# conta_renan.senha = "9725" # Senha válida, alterada
+    conta_mae.consultar_saldo()
 
-# print(conta_renan.senha)
+    conta_mae.saldo
 
-# # --------------------------------- // --------------------------- // -------------------
+    # --------------------------------- // --------------------------- // -------------------
 
-# #Consultar todos os valores das instancias da classeprint
+    ## Consulta cartoes
 
-# print(conta_renan.__dict__)
-# print(cartao_renan.__dict__)
+    print(conta_renan.cartoes[0].numero)
+
+    # --------------------------------- // --------------------------- // -------------------
+
+    ## Cartao de Credito
+
+    cartao_renan = CartaoCredito('Renan',conta_renan)
+
+    print(cartao_renan.validade)
+    print(cartao_renan.numero)
+    print(cartao_renan.cvv)
+
+
+    cartao_mae = CartaoCredito('Shirley',conta_mae)
+    print(cartao_mae.validade)
+    print(cartao_mae.numero)
+    print(cartao_mae.cvv)
+
+    # --------------------------------- // --------------------------- // -------------------
+
+    ## Senha
+
+    print(conta_renan.senha)
+
+    conta_renan.senha = '123' # Senha inválida
+
+    conta_renan.senha = "9725" # Senha válida, alterada
+
+    print(conta_renan.senha)
+
+    # --------------------------------- // --------------------------- // -------------------
+
+    #Consultar todos os valores das instancias da classeprint
+
+    print(conta_renan.__dict__)
+    print(cartao_renan.__dict__)
 
